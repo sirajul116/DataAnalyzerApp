@@ -99,17 +99,43 @@ void CPlotTabDlg::FillComboBoxes(const CStringArray& headers)
 void CPlotTabDlg::OnCbnSelchangeComboX()
 {
 	// TODO: Add your control notification handler code here
-	int current = m_comboX.GetCurSel();
+    int selectedX = m_comboX.GetCurSel();
+    if (selectedX == -1) return;
 
-	//if user select same as Y-> auto seitch Y ot previous X
-	if (current == m_comboY.GetCurSel() && current != -1)
-	{
-		m_comboY.SetCurSel(m_lastX);
-	}
-	m_lastX = current;
-    m_lastY = m_comboY.GetCurSel();
+    // Rebuild Y combo — REMOVE the item selected in X
+    int prevY = m_comboY.GetCurSel();  // Remember current Y selection
+    CString preY;
+    if (prevY != -1)
+        m_comboY.GetLBText(prevY, preY);
+    
+    m_comboY.ResetContent();
 
-    if (m_lastY != -1 && m_lastX != -1)
+    for (int i = 0; i < m_headers.GetSize(); ++i)
+    {
+        CString selectX;
+        m_comboX.GetLBText(selectedX, selectX);
+        if (m_headers[i] != selectX)  // Skip the one selected in X
+            m_comboY.AddString(m_headers[i]);
+    }
+
+    // Restore previous Y if it's still valid
+    if (prevY == -1)
+        m_comboY.SetCurSel(-1);
+    else
+    {
+        for (int i = 0; i < m_comboY.GetCount(); ++i)
+        {
+            CString itemText;
+            m_comboY.GetLBText(i, itemText);
+            if (itemText == preY)
+            {
+                m_comboY.SetCurSel(i);
+                break;
+            }
+        }
+    }
+
+    if(m_comboX.GetCurSel() != -1 && m_comboY.GetCurSel() != -1)
         UpdateChart();
 	
 }
@@ -117,18 +143,44 @@ void CPlotTabDlg::OnCbnSelchangeComboX()
 void CPlotTabDlg::OnCbnSelchangeComboY()
 {
 	// TODO: Add your control notification handler code here
-	int current = m_comboY.GetCurSel();
+    int selectedY = m_comboY.GetCurSel();
+    if (selectedY == -1) return;
 
-	//if user select same as Y-> auto seitch Y ot previous X
-	if (current == m_comboX.GetCurSel() && current != -1)
-	{
-		m_comboX.SetCurSel(m_lastY);
-	}
-	m_lastY = current;
-    m_lastX = m_comboX.GetCurSel();
+    // Rebuild X combo — REMOVE the item selected in Y
+    int prevX = m_comboX.GetCurSel();
+    CString preX;
+    if(prevX != -1)
+        m_comboX.GetLBText(prevX, preX);
 
-    if(m_lastY != -1 && m_lastX != -1)
-	    UpdateChart();
+    m_comboX.ResetContent();
+
+    for (int i = 0; i < m_headers.GetSize(); ++i)
+    {
+        CString selectY;
+        m_comboY.GetLBText(selectedY, selectY);
+        if (m_headers[i] != selectY) 
+            m_comboX.AddString(m_headers[i]);
+    }
+
+    // Restore previous X if valid
+    if (prevX == -1)
+        m_comboX.SetCurSel(-1);
+    else
+    {
+        for (int i = 0; i < m_comboX.GetCount(); ++i)
+        {
+            CString itemText;
+            m_comboX.GetLBText(i, itemText);
+            if (itemText == preX)
+            {
+                m_comboX.SetCurSel(i);
+                break;
+            }
+        }
+    }
+
+    if (m_comboX.GetCurSel() != -1 && m_comboY.GetCurSel() != -1)
+        UpdateChart();
 	
 }
 
@@ -140,8 +192,18 @@ void CPlotTabDlg::FillChartData(const std::vector<std::vector<double>>& data) {
 
 void CPlotTabDlg::UpdateChart()
 {
-    int x = m_comboX.GetCurSel();
-    int y = m_comboY.GetCurSel();
+    CString a;
+    m_comboX.GetLBText(m_comboX.GetCurSel(),a);
+    CString b;
+    m_comboY.GetLBText(m_comboY.GetCurSel(),b);
+
+    int x = -1, y = -1;
+    for (int i = 0; i < m_headers.GetSize(); ++i)
+    {
+        if (x == -1 && m_headers[i] == a) x = i;
+        if (y == -1 && m_headers[i] == b) y = i;
+        if (x != -1 && y != -1) break;
+    }
 
     if (x < 0 || y < 0 || x >= (int)m_data.size() || y >= (int)m_data.size())
         return;
