@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <ProjectGuid>{E3DF5639-B03C-122D-A6E6-930FD398222B}</ProjectGuid>
+    <Keyword>MFCProj</Keyword>
+    <RootNamespace>DataAnalyzerApp</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartAxis.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartAxisLabel.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartBalloonLabel.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartBarSerie.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartCandlestickSerie.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartCrossHairCursor.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartCtrl.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartCursor.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartDateTimeAxis.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartDragLineCursor.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartFont.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartGanttSerie.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartGradient.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartGrid.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartLabel.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartLegend.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartLineSerie.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartLogarithmicAxis.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartMouseListener.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartPointsArray.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartPointsSerie.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartScrollBar.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartSerie.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartSerieBase.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartSeriesMouseListener.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartStandardAxis.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartString.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartSurfaceSerie.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartTitle.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartXYSerie.h" />
+    <ClInclude Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\PointsOrdering.h" />
+    <ClInclude Include="CPlotTabDlg.h" />
+    <ClInclude Include="CTextTabDlg.h" />
+    <ClInclude Include="DataAnalyzerApp.h" />
+    <ClInclude Include="DataAnalyzerAppDlg.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartAxis.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartAxisLabel.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartBarSerie.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartCandlestickSerie.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartCrossHairCursor.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartCtrl.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartCursor.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartDateTimeAxis.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartDragLineCursor.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartFont.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartGanttSerie.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartGradient.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartGrid.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartLegend.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartLineSerie.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartLogarithmicAxis.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartPointsSerie.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartScrollBar.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartSerie.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartStandardAxis.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartSurfaceSerie.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartTitle.cpp" />
+    <ClCompile Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartXYSerie.cpp" />
+    <ClCompile Include="CPlotTabDlg.cpp" />
+    <ClCompile Include="CTextTabDlg.cpp" />
+    <ClCompile Include="DataAnalyzerApp.cpp" />
+    <ClCompile Include="DataAnalyzerAppDlg.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DataAnalyzerApp.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartBalloonLabel.inl" />
+    <None Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartLabel.inl" />
+    <None Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartPointsArray.inl" />
+    <None Include="..\..\..\..\Hridoy\ChartCtrl\ChartCtrl\ChartSerieBase.inl" />
+    <None Include="res\DataAnalyzerApp.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\DataAnalyzerApp.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
