@@ -68,4 +68,6 @@ public:
 	afx_msg void OnStnClickedChartctrl();
 	CChartCtrl m_chart;
 	afx_msg void OnBnClickedButtonChart();
+	BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
+	afx_msg void OnBnClickedButtonResetZoom();
 };

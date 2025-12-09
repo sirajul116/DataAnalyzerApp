@@ -52,6 +52,8 @@ BEGIN_MESSAGE_MAP(CPlotTabDlg, CDialogEx)
     ON_COMMAND(ID_DOWNLOAD_CHART, &CPlotTabDlg::OnDownloadChart)
     ON_STN_CLICKED(IDC_CHARTCTRL, &CPlotTabDlg::OnStnClickedChartctrl)
     ON_BN_CLICKED(IDC_BUTTON_CHART, &CPlotTabDlg::OnBnClickedButtonChart)
+    ON_WM_MOUSEWHEEL()
+    ON_BN_CLICKED(IDC_BUTTON_RESET_ZOOM, &CPlotTabDlg::OnBnClickedButtonResetZoom)
 END_MESSAGE_MAP()
 
 BOOL CPlotTabDlg::OnInitDialog()
@@ -407,4 +409,53 @@ void CPlotTabDlg::OnBnClickedButtonChart()
 {
     // TODO: Add your control notification handler code here
     OnDownloadChart();
+}
+
+BOOL CPlotTabDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+{
+    // Convert screen point to chart client coordinates
+    CPoint clientPt = pt;
+    m_chart.ScreenToClient(&clientPt);
+
+    CRect chartRect;
+    m_chart.GetClientRect(chartRect);
+
+    // Only zoom if mouse is over the chart
+    if (!chartRect.PtInRect(clientPt))
+        return CDialogEx::OnMouseWheel(nFlags, zDelta, pt);
+
+    // Zoom factor
+    double zoomFactor = (zDelta > 0) ? 0.8 : 1.25;  // Wheel up = zoom in
+
+    CChartAxis* pX = m_chart.GetBottomAxis();
+    CChartAxis* pY = m_chart.GetLeftAxis();
+
+    double minX, maxX, minY, maxY;
+    pX->GetMinMax(minX, maxX);
+    pY->GetMinMax(minY, maxY);
+
+    // Current mouse position in data coordinates
+    double mouseX = minX + (clientPt.x / (double)chartRect.Width()) * (maxX - minX);
+    double mouseY = maxY - (clientPt.y / (double)chartRect.Height()) * (maxY - minY);
+
+    // New range (centered on mouse)
+    double newWidthX = (maxX - minX) * zoomFactor;
+    double newWidthY = (maxY - minY) * zoomFactor;
+
+    pX->SetMinMax(mouseX - newWidthX * (clientPt.x / (double)chartRect.Width()),
+        mouseX + newWidthX * (1.0 - clientPt.x / (double)chartRect.Width()));
+
+    pY->SetMinMax(mouseY - newWidthY * (1.0 - clientPt.y / (double)chartRect.Height()),
+        mouseY + newWidthY * (clientPt.y / (double)chartRect.Height()));
+
+    m_chart.RefreshCtrl();
+    return TRUE;
+}
+
+
+
+void CPlotTabDlg::OnBnClickedButtonResetZoom()
+{
+    // TODO: Add your control notification handler code here
+    UpdateChart();
 }
