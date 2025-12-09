@@ -67,4 +67,5 @@ private:
 public:
 	afx_msg void OnStnClickedChartctrl();
 	CChartCtrl m_chart;
+	afx_msg void OnBnClickedButtonChart();
 };

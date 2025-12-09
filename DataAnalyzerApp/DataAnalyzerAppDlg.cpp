@@ -317,3 +317,4 @@ void CDataAnalyzerAppDlg::OnSelchangeTabMain(NMHDR* pNMHDR, LRESULT* pResult)
 
 	*pResult = 0;
 }
+

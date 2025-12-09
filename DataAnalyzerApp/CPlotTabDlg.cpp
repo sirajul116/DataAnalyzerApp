@@ -51,6 +51,7 @@ BEGIN_MESSAGE_MAP(CPlotTabDlg, CDialogEx)
     ON_COMMAND(ID_DOWNLOAD_DATA, &CPlotTabDlg::OnDownloadData)
     ON_COMMAND(ID_DOWNLOAD_CHART, &CPlotTabDlg::OnDownloadChart)
     ON_STN_CLICKED(IDC_CHARTCTRL, &CPlotTabDlg::OnStnClickedChartctrl)
+    ON_BN_CLICKED(IDC_BUTTON_CHART, &CPlotTabDlg::OnBnClickedButtonChart)
 END_MESSAGE_MAP()
 
 BOOL CPlotTabDlg::OnInitDialog()
@@ -400,4 +401,10 @@ void CPlotTabDlg::OnDownloadChart()
 void CPlotTabDlg::OnStnClickedChartctrl()
 {
     // TODO: Add your control notification handler code here
+}
+
+void CPlotTabDlg::OnBnClickedButtonChart()
+{
+    // TODO: Add your control notification handler code here
+    OnDownloadChart();
 }

@@ -11,6 +11,7 @@
 #define IDD_TAB_TEXT                    137
 #define IDC_BUTTON1                     1000
 #define IDC_BUTTON_LOAD                 1000
+#define IDC_BUTTON_CHART                1000
 #define IDC_LIST_DATA                   1001
 #define IDC_TREE_HEADERS                1003
 #define IDC_TAB_MAIN                    1004
