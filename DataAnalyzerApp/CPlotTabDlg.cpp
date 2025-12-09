@@ -160,7 +160,7 @@ void CPlotTabDlg::UpdateChart()
     pLeftAxis = m_chart.CreateStandardAxis(CChartCtrl::LeftAxis);
 
     // Auto-scale based on real data
-    double minX = *std::min_element(m_data[x].begin(), m_data[x].end()) + 10;
+    double minX = *std::min_element(m_data[x].begin(), m_data[x].end()) - 10;
     double maxX = *std::max_element(m_data[x].begin(), m_data[x].end()) + 10;
     double minY = *std::min_element(m_data[y].begin(), m_data[y].end()) - 25;
     double maxY = *std::max_element(m_data[y].begin(), m_data[y].end()) + 10;

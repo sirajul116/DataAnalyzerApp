@@ -59,11 +59,12 @@ public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	void EnableZooming();
 protected:
-	CChartCtrl m_chart;
+	
 
 private: 
 	bool m_chartReady = false;
 	
 public:
 	afx_msg void OnStnClickedChartctrl();
+	CChartCtrl m_chart;
 };

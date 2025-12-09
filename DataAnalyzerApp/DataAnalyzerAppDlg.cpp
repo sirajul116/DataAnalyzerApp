@@ -184,16 +184,21 @@ HCURSOR CDataAnalyzerAppDlg::OnQueryDragIcon()
 void CDataAnalyzerAppDlg::OnBnClickedButton1()
 {
 	// TODO: Add your control notification handler code here
-	// 1. Clear list completely
-	m_listData.DeleteAllItems();
-	while (m_listData.DeleteColumn(0));   // remove old columns
-
+	
 	// 2. File open dialog
 	CFileDialog dlg(TRUE, _T("csv"), nullptr,
 		OFN_HIDEREADONLY | OFN_FILEMUSTEXIST,
 		_T("CSV Files (*.csv)|*.csv|TEXT Files (*.txt*)|*.txt*| (*.text*)| *.text*|"), this);
 
 	if (dlg.DoModal() != IDOK) return;
+	// Clear old plot
+	m_plotTab.m_chart.RemoveAllSeries();
+	
+
+	// 1. Clear list completely
+	m_listData.DeleteAllItems();
+	while (m_listData.DeleteColumn(0));   // remove old columns
+
 
 	CString filePath = dlg.GetPathName();
 
